@@ -16,4 +16,5 @@ class User < ApplicationRecord
     else
       where(conditions).first
     end
+  end
 end
