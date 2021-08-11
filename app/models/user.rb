@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   attr_accessor :login
 
+  validates :username, uniqueness: { case_sensitive: :false }, length: { minimum: 4, maximum: 20 }
+  
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
